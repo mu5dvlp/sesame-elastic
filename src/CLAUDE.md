@@ -1,5 +1,11 @@
 # Application
 
+## 概要
+
+Eventbridgeから、定期的に実行される。
+
+Sesame APIを使用して、稼働状況についてをEC2のElasticsearchに送信する。
+
 ## アーキテクチャ
 
 厳密なクリーンアーキテクチャを使用して、アプリケーションを構成。
@@ -16,3 +22,9 @@
 |パッケージ管理|uv|
 |テスト|Pytest|
 |Lint|ruff|
+
+## Lambda エントリーポイント
+
+- ハンドラー: `presentation.lambda_function.handler`
+- ランタイム: Python 3.12
+- zip 化対象: `src/` ディレクトリ全体（`dist/lambda.zip` に出力）

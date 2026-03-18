@@ -4,4 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-`sesame-elastic` — a monitoring project (early stage, no code yet).
+`sesame-elastic` — EC2上でELK Stackをホストし、Lambda から Sesame API 経由で定期的に稼働状況を取得・Elasticsearch へ送信する監視基盤。
+
+## ワークフロー
+
+- **変更を加えるたびに必ず git commit すること。**

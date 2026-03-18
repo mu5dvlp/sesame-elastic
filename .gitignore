@@ -56,3 +56,6 @@ terraform.tfvars.json
 
 # macOS
 .DS_Store
+
+# CLAUDE
+settings.local.json

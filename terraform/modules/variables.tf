@@ -4,7 +4,7 @@ variable "project_name" {
 }
 
 variable "environment" {
-  description = "Deployment environment"
+  description = "Deployment environment (dev, prod)"
   type        = string
 }
 
@@ -25,12 +25,12 @@ variable "ec2_instance_type" {
 }
 
 variable "allowed_ssh_cidr" {
-  description = "CIDR block allowed for SSH access"
+  description = "CIDR block allowed for SSH access to EC2"
   type        = string
 }
 
 variable "allowed_kibana_cidr" {
-  description = "CIDR block allowed for Kibana access"
+  description = "CIDR block allowed for Kibana (port 5601) access"
   type        = string
   default     = "0.0.0.0/0"
 }
@@ -39,6 +39,11 @@ variable "elk_version" {
   description = "ELK Stack version"
   type        = string
   default     = "8.11.0"
+}
+
+variable "lambda_zip_path" {
+  description = "Path to the Lambda deployment package zip"
+  type        = string
 }
 
 variable "schedule_expression" {
