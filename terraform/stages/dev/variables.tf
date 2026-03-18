@@ -8,6 +8,12 @@ variable "environment" {
   type        = string
 }
 
+variable "aws_profile" {
+  description = "AWS CLI profile to use"
+  type        = string
+  default     = "default"
+}
+
 variable "aws_region" {
   description = "AWS region"
   type        = string
