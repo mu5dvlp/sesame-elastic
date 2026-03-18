@@ -55,5 +55,5 @@ variable "lambda_zip_path" {
 variable "schedule_expression" {
   description = "EventBridge schedule expression for Lambda"
   type        = string
-  default     = "rate(5 minutes)"
+  default     = "rate(1 hour)"
 }
