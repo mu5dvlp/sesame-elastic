@@ -69,3 +69,11 @@ ansible-setup: ## Provision EC2 with Ansible (reads EIP from terraform output)
 		--inventory "$(EC2_IP)," \
 		--extra-vars "elk_version=$(shell terraform -chdir=$(TF_DIR) output -raw elk_version 2>/dev/null || echo 8.11.0)" \
 		$(ANSIBLE_DIR)/site.yml
+
+# ---------------------------------------------------------------------------
+# Utility
+# ---------------------------------------------------------------------------
+myip:
+	@echo ""
+	@curl -s https://ipinfo.io/ip
+	@echo ""
