@@ -1,3 +1,61 @@
+###############################################################################
+# AMI
+###############################################################################
+data "aws_ami" "amazon_linux_2023" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["al2023-ami-*-x86_64"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  filter {
+    name   = "state"
+    values = ["available"]
+  }
+}
+
+###############################################################################
+# EC2 instance profile for SSM Session Manager
+###############################################################################
+data "aws_iam_policy_document" "ec2_assume_role" {
+  statement {
+    actions = ["sts:AssumeRole"]
+    principals {
+      type        = "Service"
+      identifiers = ["ec2.amazonaws.com"]
+    }
+  }
+}
+
+resource "aws_iam_role" "ec2_ssm" {
+  name               = "${local.name_prefix}-ec2-ssm-role"
+  assume_role_policy = data.aws_iam_policy_document.ec2_assume_role.json
+
+  tags = local.common_tags
+}
+
+resource "aws_iam_role_policy_attachment" "ec2_ssm_core" {
+  role       = aws_iam_role.ec2_ssm.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
+
+resource "aws_iam_instance_profile" "ec2_ssm" {
+  name = "${local.name_prefix}-ec2-ssm-profile"
+  role = aws_iam_role.ec2_ssm.name
+
+  tags = local.common_tags
+}
+
+###############################################################################
+# SSH key pair
+###############################################################################
 resource "tls_private_key" "elk" {
   algorithm = "RSA"
   rsa_bits  = 4096
