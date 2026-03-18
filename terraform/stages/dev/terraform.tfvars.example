@@ -1,0 +1,10 @@
+project_name        = "sesame-elastic"
+environment         = "dev"
+aws_profile         = "default"
+aws_region          = "ap-northeast-1"
+availability_zone   = "ap-northeast-1a"
+ec2_instance_type   = "t3.medium"
+allowed_ssh_cidr    = "x.x.x.x/32"  # your IP: curl https://ipinfo.io/ip
+allowed_kibana_cidr = "0.0.0.0/0"
+elk_version         = "8.11.0"
+schedule_expression = "rate(5 minutes)"
