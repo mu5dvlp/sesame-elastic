@@ -3,7 +3,9 @@ from domain.repositories.status_repository import StatusRepository
 
 
 class CollectStatusUseCase:
-    def __init__(self, device_repo: DeviceRepository, status_repo: StatusRepository) -> None:
+    def __init__(
+        self, device_repo: DeviceRepository, status_repo: StatusRepository
+    ) -> None:
         self._device_repo = device_repo
         self._status_repo = status_repo
 
