@@ -41,6 +41,12 @@ variable "allowed_kibana_cidr" {
   default     = "0.0.0.0/0"
 }
 
+variable "sesame_api_key" {
+  description = "Sesame API authentication key"
+  type        = string
+  sensitive   = true
+}
+
 variable "elk_version" {
   description = "ELK Stack version"
   type        = string

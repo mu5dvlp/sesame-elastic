@@ -41,6 +41,12 @@ variable "elk_version" {
   default     = "8.11.0"
 }
 
+variable "sesame_api_key" {
+  description = "Sesame API authentication key"
+  type        = string
+  sensitive   = true
+}
+
 variable "lambda_zip_path" {
   description = "Path to the Lambda deployment package zip"
   type        = string
