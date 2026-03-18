@@ -5,7 +5,7 @@ from infrastructure.elasticsearch.client import ElasticsearchClient
 from infrastructure.sesame.client import SesameApiClient
 
 
-def handler(event: dict, context: object) -> dict:
+def handler(_event: dict, _context: object) -> dict:
     use_case = CollectStatusUseCase(
         device_repo=SesameApiClient(api_key=os.environ["SESAME_API_KEY"]),
         status_repo=ElasticsearchClient(
