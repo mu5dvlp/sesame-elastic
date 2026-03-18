@@ -1,0 +1,4 @@
+---
+- import_tasks: docker.yml
+- import_tasks: sysctl.yml
+- import_tasks: elk_stack.yml

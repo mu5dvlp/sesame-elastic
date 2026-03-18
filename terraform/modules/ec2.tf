@@ -30,13 +30,15 @@ resource "aws_instance" "elk" {
     delete_on_termination = true
   }
 
-  user_data = base64encode(templatefile("${path.module}/templates/user_data.sh.tpl", {
-    elk_version = var.elk_version
-  }))
-
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-elk"
   })
+
+  lifecycle {
+    ignore_changes = [
+      ami, # 新しい AL2023 AMI がリリースされても再作成しない
+    ]
+  }
 }
 
 resource "aws_eip" "elk" {

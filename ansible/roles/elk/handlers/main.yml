@@ -1,0 +1,7 @@
+---
+- name: Restart ELK stack
+  become: true
+  ansible.builtin.command:
+    cmd: docker compose restart
+    chdir: "{{ elk_install_dir }}"
+  changed_when: true

@@ -57,5 +57,8 @@ terraform.tfvars.json
 # macOS
 .DS_Store
 
+# Ansible
+ansible/inventories/
+
 # CLAUDE
 settings.local.json

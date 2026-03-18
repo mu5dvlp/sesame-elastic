@@ -1,0 +1,8 @@
+---
+- name: Set vm.max_map_count for Elasticsearch
+  become: true
+  ansible.posix.sysctl:
+    name: vm.max_map_count
+    value: "262144"
+    sysctl_file: /etc/sysctl.conf
+    reload: true

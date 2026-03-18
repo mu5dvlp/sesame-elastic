@@ -28,3 +28,8 @@ output "ssh_command" {
   value       = "ssh -i sesame-elastic-dev.pem ec2-user@${module.sesame_elastic.ec2_public_ip}"
   sensitive   = false
 }
+
+output "elk_version" {
+  description = "ELK Stack version"
+  value       = module.sesame_elastic.elk_version
+}

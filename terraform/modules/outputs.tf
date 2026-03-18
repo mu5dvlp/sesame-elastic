@@ -33,3 +33,8 @@ output "private_key_path" {
   value       = local_sensitive_file.elk_private_key.filename
   sensitive   = true
 }
+
+output "elk_version" {
+  description = "ELK Stack version"
+  value       = var.elk_version
+}
