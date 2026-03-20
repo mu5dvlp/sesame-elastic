@@ -47,6 +47,11 @@ variable "sesame_api_key" {
   sensitive   = true
 }
 
+variable "sesame_device_uuids" {
+  description = "Comma-separated list of Sesame device UUIDs to monitor"
+  type        = string
+}
+
 variable "elk_version" {
   description = "ELK Stack version"
   type        = string

@@ -47,6 +47,11 @@ variable "sesame_api_key" {
   sensitive   = true
 }
 
+variable "sesame_device_uuids" {
+  description = "Comma-separated list of Sesame device UUIDs to monitor"
+  type        = string
+}
+
 variable "lambda_zip_path" {
   description = "Path to the Lambda deployment package zip"
   type        = string

@@ -43,6 +43,7 @@ module "sesame_elastic" {
   allowed_ssh_cidr    = var.allowed_ssh_cidr
   allowed_kibana_cidr = var.allowed_kibana_cidr
   sesame_api_key      = var.sesame_api_key
+  sesame_device_uuids = var.sesame_device_uuids
   elk_version         = var.elk_version
   lambda_zip_path     = data.archive_file.lambda.output_path
   schedule_expression = var.schedule_expression

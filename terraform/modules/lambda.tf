@@ -44,9 +44,10 @@ resource "aws_lambda_function" "sesame_monitor" {
 
   environment {
     variables = {
-      ELASTICSEARCH_HOST = aws_eip.elk.public_ip
-      ELASTICSEARCH_PORT = "9200"
-      SESAME_API_KEY     = var.sesame_api_key
+      ELASTICSEARCH_HOST  = aws_eip.elk.public_ip
+      ELASTICSEARCH_PORT  = "9200"
+      SESAME_API_KEY      = var.sesame_api_key
+      SESAME_DEVICE_UUIDS = var.sesame_device_uuids
     }
   }
 

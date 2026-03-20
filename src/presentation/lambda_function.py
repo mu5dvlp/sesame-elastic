@@ -6,8 +6,12 @@ from infrastructure.sesame.client import SesameApiClient
 
 
 def handler(_event: dict, _context: object) -> dict:
+    device_uuids = os.environ["SESAME_DEVICE_UUIDS"].split(",")
     use_case = CollectStatusUseCase(
-        device_repo=SesameApiClient(api_key=os.environ["SESAME_API_KEY"]),
+        device_repo=SesameApiClient(
+            api_key=os.environ["SESAME_API_KEY"],
+            device_uuids=device_uuids,
+        ),
         status_repo=ElasticsearchClient(
             host=os.environ["ELASTICSEARCH_HOST"],
             port=int(os.environ.get("ELASTICSEARCH_PORT", "9200")),

@@ -8,5 +8,4 @@ class DeviceStatus:
     nickname: str
     locked: bool
     battery: int
-    responsive: bool
     timestamp: datetime
